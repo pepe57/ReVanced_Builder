@@ -119,5 +119,7 @@ jobs:
         with:
           name: ${{ env.RELEASE_NAME }}
           token: ${{ github.token }}
-          files: *.zip
+          files: |
+            ReVanced.zip
+            Morphe.zip
           body_path: ${{ steps.read_release.outputs.ReleaseBody }}
