@@ -36,8 +36,8 @@ jobs:
 
       - name: Building
         run: |
-          # https://revanced.app/patches?pkg=com.google.android.youtube
           # https://github.com/ReVanced/revanced-cli/tree/main/docs
+          # https://github.com/MorpheApp/morphe-cli/tree/main/docs
 
           & "$env:ProgramFiles\Zulu\zulu*\bin\java.exe" `
           -jar "ReVanced_Builder\revanced-cli.jar" `
@@ -62,7 +62,16 @@ jobs:
         id: read_release
         run: |
           # https://en.wikipedia.org/wiki/Percent-encoding
-          (Get-Content -Path ReleaseNotesTemplate.md -Encoding utf8 -Raw).replace("YouTubeTag", "${{ env.LatestSupportedYT }}").replace("CLITag", "${{ env.CLIvtag }}").replace("PatchesTag", "${{ env.Patchesvtag }}").replace("MicroGTag", "${{ env.MicroGTag }}").replace("ZuluTag", "${{ env.ZuluTag }}") | Set-Content -Path ReleaseNotesTemplate.md -Encoding utf8 -Force
+          (Get-Content -Path ReleaseNotesTemplate.md -Encoding utf8 -Raw).Replace("ReVancedYTdot", "${{ env.ReVancedYTdot }}").
+            Replace("CLIReVancedTag", "${{ env.CLIReVancedTag }}").
+            Replace("ReVancedPatchesTag", "${{ env.ReVancedPatchesTag }}").
+            Replace("MicroG_ReVanced", "${{ env.MicroG_ReVanced }}").
+            Replace("ZuluTag", "${{ env.ZuluTag }}").
+            Replace("MorpheYTdot", "${{ env.MorpheYTdot }}").
+            Replace("CLIMorpheTag", "${{ env.CLIMorpheTag }}").
+            Replace("MorphePatchesTag", "${{ env.MorphePatchesTag }}").
+            Replace("MicroG_Morphe", "${{ env.MicroG_Morphe }}").
+            Replace("ZuluTag", "${{ env.ZuluTag }}") | Set-Content -Path ReleaseNotesTemplate.md -Encoding utf8 -Force
 
           # https://trstringer.com/github-actions-multiline-strings/
           Add-Content -Path $env:GITHUB_OUTPUT -Value "ReleaseBody=ReleaseNotesTemplate.md"
