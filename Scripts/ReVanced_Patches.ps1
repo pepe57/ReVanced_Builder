@@ -6,7 +6,7 @@ $Parameters = @{
 	Verbose         = $true
 }
 $ReVancedPatchesvTag = (Invoke-RestMethod @Parameters).tag_name
-$ReVancedPatchesTag = $Patchesvtag.replace("v", "")
+$ReVancedPatchesTag = $ReVancedPatchesvTag.replace("v", "")
 
 $Parameters = @{
 	Uri             = "https://github.com/revanced/revanced-patches/releases/download/$ReVancedPatchesvtag/patches-$ReVancedPatchestag.rvp"
