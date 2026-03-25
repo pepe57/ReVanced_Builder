@@ -5,8 +5,8 @@ $Parameters = @{
 	UseBasicParsing = $true
 	Verbose         = $true
 }
-$MorphePatchesvtag = (Invoke-RestMethod @Parameters).tag_name
-$MorphePatchestag = $Patchesvtag.replace("v", "")
+$MorphePatchesvTag = (Invoke-RestMethod @Parameters).tag_name
+$MorphePatchesTag = $Patchesvtag.replace("v", "")
 
 $Parameters = @{
 	Uri             = "https://github.com/MorpheApp/morphe-patches/releases/download/$MorphePatchesvtag/patches-$MorphePatchestag.mpp"
@@ -16,4 +16,4 @@ $Parameters = @{
 }
 Invoke-RestMethod @Parameters
 
-echo "MorphePatchestag=$MorphePatchestag" >> $env:GITHUB_ENV
+echo "MorphePatchesTag=$MorphePatchesTag" >> $env:GITHUB_ENV
