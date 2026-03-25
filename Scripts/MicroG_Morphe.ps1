@@ -11,7 +11,7 @@ $MicroG_Morphe = $Releases.tag_name
 
 $Parameters = @{
 	Uri             = $URL
-	Outfile         = "Morphe_Builder\microg.apk"
+	Outfile         = "Morphe_Builder\microg_morphe.apk"
 	UseBasicParsing = $true
 	Verbose         = $true
 }
