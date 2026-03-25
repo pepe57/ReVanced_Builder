@@ -6,7 +6,7 @@ $Parameters = @{
 	Verbose         = $true
 }
 $MorphePatchesvTag = (Invoke-RestMethod @Parameters).tag_name
-$MorphePatchesTag = $Patchesvtag.replace("v", "")
+$MorphePatchesTag = $MorphePatchesvTag.replace("v", "")
 
 $Parameters = @{
 	Uri             = "https://github.com/MorpheApp/morphe-patches/releases/download/$MorphePatchesvtag/patches-$MorphePatchestag.mpp"
