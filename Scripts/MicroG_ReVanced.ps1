@@ -13,7 +13,7 @@ $MicroG_ReVanced = $Releases.tag_name
 
 $Parameters = @{
 	Uri             = $URL
-	Outfile         = "ReVanced_Builder\microg.apk"
+	Outfile         = "ReVanced_Builder\microg_revanced.apk"
 	UseBasicParsing = $true
 	Verbose         = $true
 }
@@ -23,7 +23,7 @@ Invoke-RestMethod @Parameters
 $URL = $Assets | Where-Object -FilterScript {$_ -match "hw"}
 $Parameters = @{
 	Uri             = $URL
-	Outfile         = "ReVanced_Builder\microg-huawei.apk"
+	Outfile         = "ReVanced_Builder\microg_revanced_huawei.apk"
 	UseBasicParsing = $true
 	Verbose         = $true
 }
